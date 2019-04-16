@@ -21,7 +21,7 @@ def get_tasks(request,id):
     except Exception as e:
         return JsonResponse({'error':str(e)},status=404)
     task = list.tasks.all()
-    task = [t.to_json() for t in task]
+    task = [t.to_all_json() for t in task]
     return JsonResponse(task,safe=False)
 
 def task_detail(request,id):

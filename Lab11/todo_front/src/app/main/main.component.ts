@@ -13,54 +13,18 @@ export class MainComponent implements OnInit,OnDestroy {
 
   public output = '';
   public stringArray: string[] = ["df",];
-
+  public show:boolean = false;
   public list: TaskList[] = [
-    {
-      'id':1,
-      'name':"django"
-    },
-    {
-      'id':2,
-      'name':"angular"
-    },
-    {
-      'id':3,
-      'name':"all together"
-    },
+    
   ];
   public loading = false;
 
-  public tasks: Task[] = [
-    {
-      'id':1,
-      'name':"backApi",
-      'created_at':"12/04/2019",
-      'due_on':'15/04/2019',
-      'status':'done',
-      'task_list':1
-    },
-    {
-      'id':1,
-      'name':"frontCss",
-      'created_at':"13/04/2019",
-      'due_on':'14/04/2019',
-      'status':'not done',
-      'task_list':2
-    },
-    {
-      'id':1,
-      'name':"todo_list",
-      'created_at':"11/04/2019",
-      'due_on':'16/04/2019',
-      'status':'not done',
-      'task_list':3
-    },
-  ];
+  public tasks: Task[] = [];
 
   public interval;
   public i = 0;
 
-  displayedColumns: string[] = ['id','name','created_at','due_on','status'];
+  displayedColumns: string[] = ['id','name','created_at','due_on','status','update','delete'];
 
 
   constructor(private provider: ServiceService) { }
@@ -77,17 +41,25 @@ export class MainComponent implements OnInit,OnDestroy {
     });
   }
   
-
+hide(){
+  this.show = false;
+}
   ngOnDestroy() {
     clearInterval(this.interval);
   }
 
-  getProducts(list: Task) {
+  getProducts(list: TaskList) {
+    this.show = true;
     this.provider.getProducts(list).then(res => {
       this.tasks = res;
     });
   }
-
+  getCategory(){
+    this.provider.getCategories().then(res => {
+    console.log(res);
+    this.list = res;
+  });
+}
   sendMessageByService() {
     this.provider.sendMessage.emit('This message From Parent Component');
   }
