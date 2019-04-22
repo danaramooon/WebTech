@@ -1,0 +1,20 @@
+<div class="container">
+  <table class = "table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Created at</th>
+    <th>Due on</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>{{task.id}}</td>
+    <input type="text" [(ngModel)]="task.name" />
+    <input type="text" [(ngModel)]="task.created_at" />
+    <input type="text" [(ngModel)]="task.due_on" />
+    <input type="text" [(ngModel)]="task.status" />
+    <td><button class = "btn btn-info" (click) = "updateTask(task)">Update</button></td>
+    <td><button class = "btn btn-danger" (click) = "deleteTask(task)">Delete</button></td>
+  </tr>
+  </table>
+</div>

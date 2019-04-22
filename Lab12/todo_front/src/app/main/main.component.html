@@ -1,0 +1,56 @@
+<div class="container">
+    <ng-container>
+        <input type="text" [(ngModel)]="name" />
+        <button class = "btn btn-primary" (click)="createTaskList()">Add task list</button>
+  </ng-container>
+  <h3>List of Task:</h3>
+  <ng-container>
+    <div *ngFor="let p of list" >
+      <input type="text" [(ngModel)]="p.name" />
+      <button  class = "btn btn-primary" (click)="getProducts(p,p.id)">Show Task</button>
+      <button class = "btn btn-primary" (click) = "createTask(p)">Add Task</button>
+      <button class = "btn btn-info" (click) = "updateTaskList(p)">Update</button>
+      <button class = "btn btn-danger" (click) ="deleteTaskList(p)">Delete</button>
+    </div> 
+</ng-container>
+    <br/>
+    <ng-container *ngIf="show">
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+         <td mat-cell *matCellDef="let element">  <a routerLink="/task/{{element.id}}/" >{{element.name}}</a> </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <br/>
+  <button class = "btn btn-primary " (click)="hide()">Hide</button>
+  </ng-container>
+
+
+  <ng-container *ngIf = "creat" >
+      <input type="text" placeholder="name" [(ngModel)]="Tname" />
+      <input type="text" placeholder="time" [(ngModel)]="created_at" />
+      <input type="text" placeholder="due_on" [(ngModel)]="due_on" />
+      <input type="text" placeholder="status" [(ngModel)]="status" />
+      <button class = "btn btn-primary" (click)="createTask()">Add task list</button>
+</ng-container>
+
+</div>

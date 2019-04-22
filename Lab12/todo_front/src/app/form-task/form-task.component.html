@@ -1,0 +1,9 @@
+<div class="container">
+    <ng-container >
+        <input type="text" placeholder="name" [(ngModel)]="name" />
+        <input type="text" placeholder="time" [(ngModel)]="created_at" />
+        <input type="text" placeholder="due_on" [(ngModel)]="due_on" />
+        <input type="text" placeholder="status" [(ngModel)]="status" />
+        <button class = "btn btn-primary" (click)="createTask()">Add task list</button>
+  </ng-container>
+</div>
