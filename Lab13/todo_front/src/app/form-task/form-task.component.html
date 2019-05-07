@@ -1,0 +1,8 @@
+<div class = "container">   
+    <ng-container>
+        <input type="text" placeholder="name" [(ngModel)]="name" />
+        <input type="text" placeholder="due_on " [(ngModel)]="due_on"/>
+        <input type="text" placeholder="status" [(ngModel)]="status" />
+        <button class = "btn btn-success" (click)="createTask()">Add task</button>
+    </ng-container>
+</div>

@@ -1,0 +1,41 @@
+{"products":[
+    {
+        "id":1,
+        "name":"django"
+      },
+      {
+        "id":2,
+        "name":"angular"
+      },
+      {
+        "id":3,
+        "name":"all together"
+      }
+],
+"lists":[
+    {
+        "id":1,
+        "name":"backApi",
+        "created_at":"12/04/2019",
+        "due_on":"15/04/2019",
+        "status":"done",
+        "task_list":1
+      },
+      {
+        "id":1,
+        "name":"frontCss",
+        "created_at":"13/04/2019",
+        "due_on":"14/04/2019",
+        "status":"not done",
+        "task_list":2
+      },
+      {
+        "id":1,
+        "name":"todo_list",
+        "created_at":"11/04/2019",
+        "due_on":"16/04/2019",
+        "status":"not done",
+        "task_list":3
+      }
+]
+}
